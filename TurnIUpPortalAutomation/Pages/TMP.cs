@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace TurnIUpPortalAutomation.Pages
 {
@@ -28,7 +29,7 @@ namespace TurnIUpPortalAutomation.Pages
             //enter code
 
             IWebElement codeInput = driver.FindElement(By.Id("Code"));
-            codeInput.SendKeys("August2025");
+            codeInput.SendKeys("August1998");
 
 
             //enter description
@@ -43,20 +44,22 @@ namespace TurnIUpPortalAutomation.Pages
             //click on save button
             IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
             saveButton.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
             //check new time record has been created succesfully 
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPageButton.Click();
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            if (newCode.Text == "August2025")
-            {
-                Console.WriteLine("New record created");
-            }
-            else
-            {
-                Console.WriteLine("New record has not been created");
-            }
+
+            Assert.That(newCode.Text == "August1998", "This record not created");
+            //if (newCode.Text == "August1998")
+            //{
+            //    Assert.Pass("New record created");
+            //}
+            //else
+            //{
+            //    Assert.Pass("New record has not been created");
+            //}
 
         }
         public void EditTimeRecord(IWebDriver driver)

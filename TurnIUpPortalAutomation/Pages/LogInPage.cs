@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace TurnIUpPortalAutomation.Pages
 {
@@ -18,10 +19,16 @@ namespace TurnIUpPortalAutomation.Pages
             //launch turn up portal and navigate to login
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
 
-            //identify username textbox and enter valid username
-            IWebElement userNameTextbox = driver.FindElement(By.Id("UserName"));
-            userNameTextbox.SendKeys("hari");
-
+            try
+            {
+                //identify username textbox and enter valid username
+                IWebElement userNameTextbox = driver.FindElement(By.Id("UserName"));
+                userNameTextbox.SendKeys("hari");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Turnup portal did not launch",ex.Message);
+            }
             //identify password textbox and enter valid password
             IWebElement userPassword = driver.FindElement(By.Id("Password"));
             userPassword.SendKeys("123123");
