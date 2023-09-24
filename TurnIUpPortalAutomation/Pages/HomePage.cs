@@ -21,7 +21,7 @@ namespace TurnIUpPortalAutomation.Pages
 
 
             //WebDriverWait wait =new WebDriverWait(driver,TimeSpan.FromSeconds(5));
-            //wait.Until(SeleniumExtras.waitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a")));
+            //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a")));
             
             // click creatre new record
             IWebElement timeOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));

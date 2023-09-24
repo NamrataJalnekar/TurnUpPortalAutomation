@@ -36,14 +36,14 @@ namespace TurnIUpPortalAutomation.Tests
         public void CreateTime_test()
         {
             TMP tmpabj = new TMP();
-            tmpabj.CreateTimeRecord(driver);
+            tmpabj.CreateTimeRecord(driver, "Auguest1958", "some description", "$25");
 
         }
         [Test, Order(2), Description("This tests edit an existing time record with valid data")]
         public void EditTime_test() 
         {
             TMP tmpabj = new TMP();
-            tmpabj.EditTimeRecord(driver);
+            tmpabj.EditTimeRecord(driver,"some code");
         }
         [Test, Order(3), Description("This tests dele an existing time record")]
         public void DeleteTime_test()
